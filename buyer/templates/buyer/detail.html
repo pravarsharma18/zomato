@@ -1,0 +1,29 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="mb-5">
+  <h4>{{restra.name}}</h4>
+  <small
+    >{{restra.ratings|default:''}}{% if restra.ratings %}
+    <i class="fa fa-star" aria-hidden="true"></i>
+    {% endif %}</small
+  >
+</div>
+{% if dishes %}
+<h6>Menu</h6>
+{% for dish in dishes%}
+<div class="row mb-3">
+  <div class="col-3">
+    <span>{{dish.name}}</span>
+    <span
+      >{% if dish.type == 'VEG' %}
+      <img height="15" src="{% static 'images/veg.png' %}" />{% else %}<img
+        height="15"
+        src="{% static 'images/nonveg.png' %}"
+      />{% endif %}</span
+    >
+    <p>{{dish.base_price}}</p>
+  </div>
+  <div class="col-3">
+    <img height="100" src="{{dish.thumbnail.url}}" />
+  </div>
+</div>
+{% endfor %} {% endif %} {% endblock content %}
