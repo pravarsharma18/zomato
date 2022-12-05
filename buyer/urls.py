@@ -4,5 +4,5 @@ from .views import HomePage, RestaurantDetail
 app_name = "buyer"
 urlpatterns = [
     path("", HomePage.as_view(), name="homepage"),
-    path('<pk>/', RestaurantDetail.as_view(), name="restra-detail"),
+    path('<int:pk>/', RestaurantDetail.as_view(), name="restra-detail"),
 ]
